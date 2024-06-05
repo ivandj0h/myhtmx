@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello, HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<form hx-post="demo2/loadUrl"
+      hx-target="#iframe-container"
+      hx-swap="outerHTML"
+      class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div class="mb-4">
+        <label for="url" class="block text-gray-700 text-sm font-bold mb-2">
+            URL
+        </label>
+        <input type="text"
+               id="url" name="url"
+               placeholder="Enter URL"
+               value="https://www.danvega.dev"
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    </div>
+    <button type="submit"
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Load
+    </button>
+</form>
+
+<div id="iframe-container" class="w-full">
+    <!-- This is where the iframe will be loaded by HTMX -->
+</div>
+
+
+</body>
+</html>
